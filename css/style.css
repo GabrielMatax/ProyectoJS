@@ -1,0 +1,81 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.productos__grilla {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "filtros filtros filtros"
+   "prd1 prd2 prd3"
+   "prd4 prd5 prd6"
+   "prd7 prd8 prd9";
+    justify-content: space-around;
+    align-content: space-between;
+    align-items: center;
+    justify-items: center;
+    padding: 0px 0px 4rem 0px;
+    gap: 2rem 0;
+    background-color: white; }
+    .productos__grilla .filtros {
+      grid-area: filtros;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+      min-height: 100px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      list-style-type: none;
+      font-size: 16px;
+      border-color: #2c2a2a;
+      background: black;
+      background: linear-gradient(180deg, black 0%, #1b1818 55%, #363636 100%); }
+      .productos__grilla .filtros .filtros__lista {
+        color: white;
+        padding: 2px 2rem;
+        border-left: solid 1px;
+        border-right: solid 1px;
+        border-color: white;
+        font-family: 'IBM Plex Sans Thai Looped', sans-serif; }
+    .productos__grilla .productos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 85%;
+      gap: 1rem;
+      height: 570px;
+      transition: 500ms; }
+      .productos__grilla .productos img {
+        object-fit: contain;
+        height: 400px; }
+      .productos__grilla .productos:hover {
+        transform: scale(1.05); }
+      .productos__grilla .productos div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; }
+        .productos__grilla .productos div .productos__nombre {
+          font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+          font-weight: 600;
+          font-size: 22px; }
+        .productos__grilla .productos div .productos_btn_color {
+          background-color: rgba(59, 110, 250, 0.966);
+          outline: none;
+          border: none;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 6px 12px;
+          transition: 300ms; }
+          .productos__grilla .productos div .productos_btn_color:hover {
+            background-color: #5fd4f8; }
+          .productos__grilla .productos div .productos_btn_color a {
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            font-family: 'Teko', sans-serif;
+            font-weight: 400;
+            letter-spacing: 1px;
+            line-height: 1.2; }
