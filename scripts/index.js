@@ -1,5 +1,7 @@
 const contenedor = document.getElementById("productoss");
 const tablaCarrito = document.getElementById("carritoLista");
+const contadorCarrito = document.getElementById("contadorCarrito");
+const correo = document.getElementById("correo")
 const carrito = [];
 
 const productos = [
@@ -43,7 +45,7 @@ const cargarProductos = (datos, nodo, agregar) => {
     let acumuladorDos = "";
     datos.forEach((el) => {
         acumuladorDos += agregar ? armarCarrito(el) : armarCard(el);
-    })
+    });
     nodo.innerHTML = acumuladorDos;
 };
 
@@ -51,23 +53,26 @@ const agregarCarrito = (id) => {
     const seleccion = productos.find(item => item.id === id);
     const busqueda = carrito.findIndex(el => el.id === id);
 
-    if(seleccion.cantidad === 0){
-        alert("no stock")
-    }
-
     if (busqueda === -1) {
         carrito.push({
             id: seleccion.id,
             nombreProducto: seleccion.nombreProducto,
             precio: seleccion.precio,
             comprados: 1,
-        })
-        productos[0].cantidad--
+        });
         
     } else {
-        carrito[busqueda].comprados = carrito[busqueda].comprados + 1
+        carrito[busqueda].comprados = carrito[busqueda].comprados + 1;
     }
+
+    contadorCarrito.innerText = carrito.length;
+
     cargarProductos(carrito, tablaCarrito, true);
 };
+
+
+localStorage.setItem("correo", JSON.stringify(correo));
+correo.value = localStorage.getItem("correo");
+
 
 cargarProductos(productos, contenedor, false);

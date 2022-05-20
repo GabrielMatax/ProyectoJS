@@ -19,10 +19,19 @@
             </ul>
         </section>
 
+        <section>
+          <form>
+            <label for="correo" class="form-label">Correo Electronico</label>
+					  <input type="email" class="form-control" id="correo">
+            <label for="Contraseña" class="form-label">Contraseña</label>
+					  <input type="password" class="form-control" id="Contraseña">
+          </form>
+        </section>
+
         <section class="productos__grilla" id="productoss"></section>
 
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Carrito
+            Carrito <span id="contadorCarrito">0</span>
         </button>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
