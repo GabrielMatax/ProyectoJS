@@ -2,6 +2,7 @@ const contenedor = document.getElementById("productoss");
 const tablaCarrito = document.getElementById("carritoLista");
 const contadorCarrito = document.getElementById("contadorCarrito");
 const correo = document.getElementById("correo")
+const botonEnviar = document.getElementById("btnEnviar")
 const carrito = [];
 
 const productos = [
@@ -24,11 +25,13 @@ const armarCard = (item) => {
                 <h2 class="productos__nombre">${item.nombreProducto}</h2>
                 <h3 class="productos__nombre">${item.precio}$</h3>
                 <h4 class="productos__nombre">Stock: ${item.cantidad}</h4>
-                <button onclick=agregarCarrito(${item.id}) class="productos_btn_color ${item.cantidad ? 'btn-primary' : 'btn-secondary'}" ${!item.cantidad ? 'disabled' : '' }><a class="">Agregar</a></button>
+                <button onclick=agregarCarrito(${item.id}) class="productos_btn_color ${item.cantidad ? 'btn-primary' : 'btn-secondary'}" ${!item.cantidad ? 'disabled' : '' }><a onclick=botonMsg(${item.id})>Agregar</a></button>
             </div>
         </article>`
     );
 };
+
+
 
 const armarCarrito = (item) => {
     return( `
@@ -70,9 +73,18 @@ const agregarCarrito = (id) => {
     cargarProductos(carrito, tablaCarrito, true);
 };
 
+botonEnviar.addEventListener("click", function(event){
+    event.preventDefault();
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Ingresaste',
+        showConfirmButton: false,
+        timer: 1500
+    }) 
+})
 
-localStorage.setItem("correo", JSON.stringify(correo));
-correo.value = localStorage.getItem("correo");
-
+/* localStorage.setItem("correo", JSON.stringify(correo));
+correo.value = localStorage.getItem("correo"); */
 
 cargarProductos(productos, contenedor, false);
